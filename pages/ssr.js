@@ -2,6 +2,8 @@ import Layout from "../components/layout";
 import utilStyles from "../styles/utils.module.css";
 
 export async function getServerSideProps() {
+  console.log("== ssr log ==")
+  console.log(process.env);
   return {
     props: {
       time: Date.now(),
