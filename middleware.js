@@ -6,7 +6,8 @@ export function middleware(request) {
   if (request.nextUrl.pathname === "/middleware-redirect") {
     return NextResponse.redirect(new URL('/ssr', request.url));
   }
-  if (request.nextUrl.pathname === "/middleware-set-header") {
+  if (request.nextUrl.pathname === "/middleware-set-header" ||
+      request.nextUrl.pathname === "/middleware-do-nothing") {
     // Clone the request headers and set a new header `x-hello-from-middleware1`
     const requestHeaders = new Headers(request.headers);
     requestHeaders.set('x-hello-from-middleware1', 'hello');
@@ -26,5 +27,5 @@ export function middleware(request) {
 }
 
 export const config = {
-  matcher: ["/middleware-redirect", "/middleware-set-header"],
+  matcher: ["/middleware-redirect", "/middleware-set-header", "/middleware-do-nothing"],
 }

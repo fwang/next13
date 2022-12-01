@@ -18,7 +18,7 @@ export default function Home({ allPostsData }) {
   return (
     <Layout home>
       <Head>
-        <title>{siteTitle}</title>
+        <title>{siteTitle} v2</title>
       </Head>
 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
@@ -69,6 +69,7 @@ export default function Home({ allPostsData }) {
         <Link href={`/csr`}>Client Side Rendering</Link><br />
         <Link href={`/middleware-redirect`}>Middleware Redirect</Link><br />
         <Link href={`/middleware-set-header`}>Middleware Set Header (with SSR)</Link><br />
+        <Link href={`/middleware-do-nothing`}>Middleware Do Nothing (w/o SSR)</Link><br />
         <Link href={`/image-optimization`}>Image Optimization</Link><br />
         <Link href={`/image-html-tag`}>Image using raw html image tag</Link><br />
       </section>
