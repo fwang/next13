@@ -70,6 +70,7 @@ export default function Home({ allPostsData }) {
         <Link href={`/middleware-redirect`}>Middleware Redirect</Link><br />
         <Link href={`/middleware-set-header`}>Middleware Set Header (with SSR)</Link><br />
         <Link href={`/image-optimization`}>Image Optimization</Link><br />
+        <Link href={`/image-html-tag`}>Image using raw html image tag</Link><br />
       </section>
     </Layout>
   );
