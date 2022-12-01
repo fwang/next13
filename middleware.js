@@ -1,13 +1,12 @@
 import { NextResponse } from "next/server";
 
-export function middleware(request) {
+export async function middleware(request) {
   console.log("== middleware log ==")
   console.log(process.env);
   if (request.nextUrl.pathname === "/middleware-redirect") {
     return NextResponse.redirect(new URL('/ssr', request.url));
   }
-  if (request.nextUrl.pathname === "/middleware-set-header" ||
-      request.nextUrl.pathname === "/middleware-do-nothing") {
+  if (request.nextUrl.pathname === "/middleware-set-header") {
     // Clone the request headers and set a new header `x-hello-from-middleware1`
     const requestHeaders = new Headers(request.headers);
     requestHeaders.set('x-hello-from-middleware1', 'hello');
@@ -24,8 +23,12 @@ export function middleware(request) {
     response.headers.set('x-hello-from-middleware2', 'hello');
     return response;
   }
+  if (request.nextUrl.pathname === "/middleware-fetch") {
+    console.log(await fetch("https://webhook.site/facbcacc-08f2-4fb1-b67f-a26e3382b64e"));
+    return NextResponse.next();
+  }
 }
 
 export const config = {
-  matcher: ["/middleware-redirect", "/middleware-set-header", "/middleware-do-nothing"],
+  matcher: ["/middleware-redirect", "/middleware-set-header", "/middleware-fetch"],
 }

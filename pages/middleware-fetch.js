@@ -1,9 +1,9 @@
 import Layout from "../components/layout";
 
-export default function Page({ isMiddlewareHeaderSet }) {
+export default function Page() {
   return (
     <Layout>
-      <p>Do nothing</p>
+      <p>Check middleware should be called</p>
     </Layout>
   );
 }
